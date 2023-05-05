@@ -51,7 +51,7 @@ const PlaceOrderScreen = () => {
     try {
       dispatch({ type: "CREATE_REQUEST" });
       const { data } = await axios.post(
-        "/api/orders",
+        "http://localhost:3001/api/orders",
         {
           orderItems: cart.cartItems,
           shippingAddress: cart.shippingAddress,

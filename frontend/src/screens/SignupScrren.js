@@ -29,11 +29,14 @@ const SignupScrren = () => {
  }
 
     try {
-      const { data } = await axios.post("api/users/signup", {
-       name,
-        email,
-        password,
-      });
+      const { data } = await axios.post(
+        "http://localhost:3001/api/users/signup",
+        {
+          name,
+          email,
+          password,
+        }
+      );
       ctxDispatch({ type: "USER_SIGNIN", payload: data });
       // console.log(data);
 
