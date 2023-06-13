@@ -3,7 +3,7 @@ import Button from "react-bootstrap/esm/Button";
 import FormLabel from "react-bootstrap/esm/FormLabel";
 import Form from "react-bootstrap/Form";
 import FormGroup from "react-bootstrap/esm/FormGroup";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { Store } from "../Store";
 import CheckoutSteps from "../components/CheckoutSteps";
 
@@ -21,7 +21,7 @@ const ShippingAddressScreen = () => {
   const navigate = useNavigate();
  useEffect(() => {
    if (!userInfo) {
-     navigate("/signin?redirect=/shipping");
+     Navigate("/signin?redirect=/shipping");
    }
  }, [userInfo]);
 
