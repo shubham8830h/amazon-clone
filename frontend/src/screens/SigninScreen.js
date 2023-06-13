@@ -23,13 +23,10 @@ export const SigninScreen = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(
-        "http://localhost:3001/api/users/signin",
-        {
-          email,
-          password,
-        }
-      );
+      const { data } = await axios.post("api/users/signin", {
+        email,
+        password,
+      });
       ctxDispatch({ type: "USER_SIGNIN", payload: data });
       // console.log(data);
 
