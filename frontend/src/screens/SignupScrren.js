@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
 import { Store } from "../Store";
+import { BASE_URL } from "../url";
 
 const SignupScrren = () => {
   const { search } = useLocation();
@@ -29,8 +30,8 @@ const SignupScrren = () => {
  }
 
     try {
-      const { data } = await axios.post("api/users/signup", {
-       name,
+      const { data } = await axios.post(`${BASE_URL}/api/users/signup`, {
+        name,
         email,
         password,
       });

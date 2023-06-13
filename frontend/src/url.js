@@ -1,0 +1,1 @@
+export const BASE_URL="https://amazona-i3h4.onrender.com"

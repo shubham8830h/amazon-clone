@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import axios from "axios";
+import { BASE_URL } from "../url";
 
 const CartScreen = () => {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ const CartScreen = () => {
   } = state;
 
   const updateCartHandler = async (item, quantity) => {
-    const { data } = await axios.get(`/api/products/${item._id}`);
+    const { data } = await axios.get(`${BASE_URL}/api/products/${item._id}`);
 
     if (data.countInStock < quantity) {
       window.alert("Sorry. Product is out of stock");

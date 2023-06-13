@@ -7,6 +7,7 @@ import { useReducer } from "react";
 import { toast } from "react-toastify";
 import { getError } from "../Utils";
 import axios from "axios";
+import { BASE_URL } from "../url";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -39,7 +40,7 @@ const ProfileScreen = () => {
     e.preventDefault();
     try {
       const { data } = await axios.put(
-        "/api/users/profile",
+        `${BASE_URL}/api/users/profile`,
         {
           name,
           email,

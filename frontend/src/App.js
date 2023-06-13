@@ -26,6 +26,7 @@ import { getError } from "./Utils";
 import axios from "axios";
 import SearchBox from "./components/SearchBox";
 import SearchScreen from "./screens/SearchScreen";
+import { BASE_URL } from "./url";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -45,7 +46,7 @@ function App() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const { data } = await axios.get(`/api/products/categories`);
+        const { data } = await axios.get(`${BASE_URL}/api/products/categories`);
         setCategories(data);
       } catch (error) {
         toast.error(getError(error));

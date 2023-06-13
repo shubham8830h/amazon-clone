@@ -7,6 +7,7 @@ import axios from "axios";
 import Product from "../components/Product";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
+import { BASE_URL } from "../url";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -34,7 +35,7 @@ const HomeScreen = () => {
       dispatch({ type: "FETCH_REQUEST" });
 
       try {
-        const result = await axios.get("/api/products");
+        const result = await axios.get(`${BASE_URL}/api/products`);
         dispatch({ type: "FETCH_SUCCESS", payload: result.data });
       } catch (err) {
         dispatch({ type: "FETCH_FAIL", payload: err.message });

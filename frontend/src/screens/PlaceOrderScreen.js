@@ -11,6 +11,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getError } from "../Utils";
 import axios from "axios";
+import { BASE_URL } from "../url";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -51,7 +52,7 @@ const PlaceOrderScreen = () => {
     try {
       dispatch({ type: "CREATE_REQUEST" });
       const { data } = await axios.post(
-        "/api/orders",
+        `${BASE_URL}/api/orders`,
         {
           orderItems: cart.cartItems,
           shippingAddress: cart.shippingAddress,
